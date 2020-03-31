@@ -2,5 +2,51 @@
 \begin{document}
 
 \section{Processi software}
-
+\textit{"Non c'è un way of working se non c'è un processo".}\newline
+È necessario ricordarsi ciò che funziona e ciò che ha funzionato, e questo viene fatto con il controllo di versione.\newline
+Un \g{prodotto software} non è un monolite, è un insieme di parti unite assieme in un modo ben specifico, detto \textit{configurazione}. La suddivisione in parti aiuta a controllarne la complessità, lo sviluppo e la manutenzione. È incrementale, ovvero aumenta nel tempo e ha un \g{ciclo di vita}: è una \textit{macchina a stati}. In una macchina (o \textit{automa}) a stati, ogni stato ha le proprie \textit{pre-condizioni} di ingresso e \textit{post-condizioni} per l'uscita.\newline
+Il compito di un \g{progetto} software è \textit{spingere} un \g{prodotto software} attraverso un segmento di un \g{ciclo di vita}.
+\subsection{Ciclo di vita del software}
+Il \g{ciclo di vita} di un \g{prodotto software} va conosciuto, e ne vanno conosciuti i segmenti intermedi, in modo da poter preventivare le risorse necessarie, i rischi riscontrabili e contestualizzare il tutto con gli obblighi progettuali (auto-forniti o forniti dal committente).\newline
+Tipicamente i \g{cicli di vita} di un prodotto si presentano sotto forma di modelli astratti.
+L'obiettivo di un \g{progetto} è lavorare con \g{efficacia} ed \g{efficienza}, che insieme garantiscono l'\g{economicità}. Una delle metriche importanti da misurare è la produttività, in quanto può modificare l'\g{economicità}: a maggior produttività corrisponde un minor numero di ore di lavoro.
+\subsection{Processo software}
+Un \g{processo software} non deve essere inventato. Esistono, come per i \g{cicli di vita}, dei modelli. Per l'\g{ingegneria del software} c'è un modello di riferimento: lo standard ISO/IEC 12207:1995. Questi modelli, se adottati aiutano a raggiungere l'\g{economicità}.
+\subsection{Standard}
+Gli standard possono essere di due tipi:
+\begin{itemize}
+    \item Modello d'azione: come il committente deve agire (tramite procedure definite e imposte al fornitore) e come il fornitore deve agire (tramite processi definiti e specializzati);
+    \item Modello di valutazione: servono per valutare il funzionamento di un progetto, o di un'azienda, e coprono contesti molto diversi.
+\end{itemize}
+\subsubsection{ISO/IEC 12207}
+Viene trattato ora lo standard più adottato nel mondo dell'\g{ingegneria del software}. Definisce, ad alto livello, numerosi \g{processi} che possono agire contemporaneamente:
+\begin{itemize}
+    \item Processi primari: tra cui acquisizione (rapporto con i fornitori), fornitura (rapporto con i clienti), sviluppo (produzione del software);
+    \item Processi di supporto: tra cui documentazione, gestione della configurazione, verifica e validazione (qualifica);
+    \item Processi organizzativi: tra cui gestione dei processi, gestione delle infrastrutture, miglioramento continuo, formazione del personale.
+\end{itemize}
+\textit{"Se il progetto fosse un programma allora un processo primario sarebbe il main"}. Un \g{progetto} esiste se e solo se esiste un \g{processo} primario, mentre i processi organizzativi possono essere trasversali ai progetti (ovvero possono essere riutilizzati, e quindi entrare a far parte del proprio \g{way of working}).
+\subsection{Relazione fra processi, attività e compiti}
+I processi fra loro sono relazionati in modo chiaro e distinto, per evitare una duplicazione del lavoro. Questa loro separazione permette di essere separabili e componibili, ovvero i processi cooperano per \g{modularità}.
+Come per i processi, anche le attività sono divise in modo chiaro e distinto. Sono inoltre complementari: assieme perseguono gli obiettivi assegnati (caratteristica di coesione).
+\subsection{Relazione fra processi, aziende e progetti}
+Possiamo vedere i processi che seguono come se fossero legati da una relazione di \textit{subtyping} dell'OOP.
+$$Processo\;dello\;standard \leftarrow Processo\;definito \leftarrow Processo\;di\;progetto$$
+Quindi:
+\begin{itemize}
+    \item Processo dello standard: l'organizzazione adotta uno standard (per esempio l'ISO/IEC 12207) e ne segue uno o più processi. Parallelismo con il \textit{subtyping}: superclasse astratta;
+    \item Processo definito: l'organizzazione fa proprio lo standard e lo adatta alle proprie esigenze, facendolo confluire nel proprio \g{way of working}. Parallelismo con il \textit{subtyping}: classe;
+    \item Processo di progetto: l'organizzazione utilizza in un progetto i processi definiti precedentemente. Parallelismo con il \textit{subtyping}: oggetto (o istanza).
+\end{itemize}
+\subsection{Qualità e miglioramento continuo}
+È bene pianificare i \g{processi} per ogni \g{progetto} che si intende perseguire e periodicamente va valutato criticamente l'andamento del \g{progetto} per comprendere cosa sta funzionando e cosa no.
+Inoltre, se vengono associati i processi ad un sistema di qualità aiuta a fornire un miglioramento negli stessi e a garantire conformità. Di un processo è bene misurare la \g{maturità} e la \g{conformità}.
+Il miglioramento continuo può anch'esso seguire un modello. Un modello molto conosciuto è il cosiddetto \textit{Ciclo di Deming} o \textit{PDCA}.
+Il \textit{PDCA} si basa sui seguenti punti:
+\begin{itemize}
+    \item Plan (pianificazione): vengono definite le attività da svolgere e le loro scadenze, le responsabilità individuali e le risorse necessarie;
+    \item Do (esecuzione): vengono eseguite le attività precedentemente pianificate;
+    \item Check (verifica): si verifica l'esito dell'andamento delle attività rispetto alle attese (che sono le scadenze, le risorse, le responsabilità, ecc.);
+    \item Act (azione): una volta analizzato come le attività sono state svolte è possibile agire per migliore, mantenendo ciò che di buono c'è stato e aggiornando in meglio ciò che invece non è andato.
+\end{itemize}
 \end{document}
