@@ -2,5 +2,179 @@
 \begin{document}
 
 \section{Ciclo di vita del software}
-
+Un \g{prodotto software} ha un proprio \g{ciclo di vita}:
+\begin{itemize}
+    \item Concepimento: il software viene pensato da qualcuno (per opportunità personale e/o presenza di stakeholder);
+    \item Sviluppo: il software viene concretizzato (da idea a concretizzazione);
+    \item Utilizzo: il software realizzato viene utilizzato (possibilmente \textit{"tanti utenti contenti"});
+    \item Ritiro: il software non viene più utilizzato (nessuno lo usa più o non è più conveniente continuare a mantenerlo: \textit{discounted}).
+\end{itemize}
+Riprendendo il concetto di \g{ciclo di vita} come macchina a stati, la transizione fra uno stato ed un altro avviene mediante l'esecuzione di \g{attività} di \g{processi}.\newline
+Parliamo di \g{fase} quando intendiamo un segmento temporale continuo, con un inizio ed una fine, in cui il software si trova in uno stato del \g{ciclo di vita} o in una transizione fra stati.
+\subsection{Modelli di ciclo di vita}
+Esistono più tipologie di \g{modelli}, per questo si parla di essi al plurale. Esistono, ad esempio, \g{modelli} utili per software che deve essere costantemente in funzione e quindi mantenuto, e \g{modelli} per software che una volta usato può essere ritirato dal mercato poiché il suo scopo è finito.
+\subsubsection{Non-modello "Code'n'fix"}
+È uno dei primi modi di lavorare ai \g{prodotti software}. Non si può dire che è stato ideato, perché veniva adottato e basta prima che si inventasse l'\g{ingegneria del software} nel 1968. Il codice sorgente veniva scritto e se andava bene si teneva, altrimenti veniva corretto.
+\subsubsection{Modello sequenziale - a cascata - waterfall}
+L'idea chiave di questo \g{modello} è avere processi ripetibili.\newline
+Si basa su una successione rigida e strettamente sequenziale di \g{fasi} (ognuna avente delle chiare pre-condizioni in ingresso e altrettanto chiare post-condizioni in uscita verso la \g{fase} successiva), senza ritorni a \g{fasi} precedenti (perché tornare indietro significherebbe ripetere l'intera \g{fase}).\newline
+I prodotti di questo \g{modello} sono principalmente documenti:
+\begin{itemize}
+    \item Il \g{prodotto software} diventa quasi una conseguenza della produzione di documentazione, poiché avviene verso la fine del \g{ciclo di vita};
+    \item La loro approvazione permette di cambiare \g{fase} (vengono raggiunte le post-condizioni);
+    \item Ogni documento dimostra il soddisfacimento delle pre-condizioni e delle post-condizioni della \g{fase}.
+\end{itemize}
+Le fasi sono assolutamente distinte, non sovrapposte, e vengono definite con:
+\begin{itemize}
+    \item Attività pianificate (con pre-condizioni e post-condizioni);
+    \item Documenti prodotti;
+    \item Responsabilità e ruoli coinvolti;
+    \item Scadenze.
+\end{itemize}
+Tutto ciò porta il modello sequenziale ad essere particolarmente adatto in situazioni in cui il sistema organizzativo è molto complesso, infatti è stato importato nel mondo dello sviluppo software da quello dell'industria.\newline
+Schema del \g{modello} (secondo lo standard ISO/IEC 12207):
+\begin{enumerate}
+    \item Analisi dei requisiti: è un'attività del processo di sviluppo da cui posso uscire solo se i progettisti hanno compreso appieno i documenti di analisi prodotti;
+    \item Progettazione: è un'attività nuovamente del processo di sviluppo in cui viene realizzato il design dell'architettura software e del sistema e si esce solo se tutti i casi sono stati progettati e i programmatori sanno esattamente cosa fare;
+    \item Realizzazione: viene codificato il software, testato e successivamente collaudato;
+    \item Manutenzione: comporta ritorni alle fasi precedenti.
+\end{enumerate}
+Ma il \g{modello} non è esente da critiche:
+\begin{itemize}
+    \item Se capitano errori bisogna ricominciare da capo (e l'uomo fallisce);
+    \item Se l'analisi dei requisiti è poco chiara (perché il cliente è stato poco chiaro o perché magari nemmeno lui sa bene quello che vuole);
+    \item È troppo rigido e ha una visione troppo burocratica e irrealistica.
+\end{itemize}
+Sono possibili alcune correzioni:
+\begin{itemize}
+    \item Prototipazione: vengono creati dei \g{prototipi} usa e getta per capire meglio requisiti e/o le possibili soluzioni;
+    \item Cascata con ritorni: viene aggiunta la possibilità di tornare indietro. Ma i ritorni sono \g{incrementi} o \g{iterazioni}? Se in un ritorno è possibile per uno stakeholder ripensare a una parte del sistema, e potenzialmente rimuoverla, si parla di \g{iterazione}. Se invece è solo possibile aggiungere, possibilmente piccole parti, si parla di \g{incremento}.
+\end{itemize}
+Come consiglio generale, è bene evitare di posticipare troppo l'integrazione fra componenti o si rischia una \textit{"big-bang integration"} (che è l'esatto opposto della \textit{"continuous integration"}).\newline
+Ritornando su \g{incrementi} e \g{iterazioni}:
+\begin{itemize}
+    \item I modelli incrementali possono produrre valore ad ogni incremento, abbastanza rapidamente, dando priorità alle funzionalità fondamentali;
+    \item I modelli iterativi sono applicabili in ogni tipologia di modello di \g{ciclo di vita}, con gli opportuni vincoli, e sono ottimi se ci sono limiti ben definiti di azione altrimenti si rischia di non convergere alla soluzione del problema.
+\end{itemize}
+\subsubsection{Modello incrementale}
+È un \g{modello} basato su rilasci multipli e successivi, in cui i requisiti da soddisfare per realizzare il sistema sono classificati secondo l'importanza strategica che viene ad essi attribuita: vengono prima definiti dei punti fermi, poi quelli di contorno per poter via via avere un sistema più stabile.
+Lo schema generale di un modello incrementale si propone in questo modo:
+\begin{enumerate}
+    \item Definizione dei requisiti; % 1
+    \item Assegnazione dei requisiti agli incrementi; % 2
+    \item Progettazione dell'architettura del sistema (fino a questo punto il sistema è stabile); % 3
+    \item Sviluppo di un \g{incremento} del sistema; % 4
+    \item Validazione dell'\g{incremento}; % 5
+    \item Integrazione dell'\g{incremento}; % 6
+    \item Validazione del sistema e ritorno al punto 4 se mancano \g{incrementi} altrimenti si è in possesso del sistema finale. % 7
+\end{enumerate}
+I primi tre punti vengono attraversati una volta sola, per avere una base solida per i successivi cicli di sviluppo (punti 4-7). Quindi i requisiti e l'architettura del sistema sono definiti stabilmente una volta sola, mentre lo sviluppo degli \g{incrementi} è ciclico.
+Schema del \g{modello} (secondo lo standard ISO/IEC 12207):
+\begin{enumerate}
+    \item Analisi dei requisiti e progettazione architetturale;
+    \item Progettazione di dettaglio;
+    \item Realizzazione e ritorno al punto 2 se mancano \g{incrementi} altrimenti si è in possesso del sistema finale.
+\end{enumerate}
+\subsubsection{Modello evolutivo}
+Questa tipologia di \g{modello di ciclo di vita del software} si adatta bene a contesti in cui i requisiti non sono chiari fin da subito e i problemi devono necessariamente essere affrontati man mano. È utile anche quando c'è la necessità di avere contemporaneamente il rilascio e la manutenzione di più versioni (per esempio: un browser). Di conseguenza, certi stati del \g{ciclo di vita} vengono necessariamente attraversati più volte (ad esempio, la sequenza $analisi\;preliminare \rightarrow analisi\;e\;sviluppo\;singola\;evoluzione \rightarrow rilascio\;versione$). Ogni \g{fase} può avere quindi iterazioni multiple e addirittura parallele.
+Schema del \g{modello} (secondo lo standard ISO/IEC 12207):
+\begin{enumerate}
+    \item Analisi preliminare;
+    \item Consolidamento, analisi e progettazione;
+    \item Realizzazione, in cui si ottiene un \g{prototipo} o il prodotto finale dell'evoluzione, tornando poi al punto 2.
+\end{enumerate}
+\subsubsection{Modello a componenti}
+Originato con l'idea che molto di ciò che c'è da fare è già stato fatto e che quindi è possibile riutilizzarlo (l'analisi dei requisiti è quindi pensata e adattata al riuso di software già presente). L'idea alla base è il \g{riuso} sistematico di componenti pre-esistenti proprie oppure di terze parti.
+\subsubsection{Metodi agili}
+Sono metodi di lavoro nati in contrapposizione ai rigidi modelli introdotti (e presenti fino alla fine degli anni '90).
+I principi fondanti sono:
+\begin{itemize}
+    \item Individui e interazione rispetto ai processi e agli strumenti (l'eccesiva rigidità ostacola l'emergere di valore);
+    \item Software funzionante rispetto a documentazione comprensiva (la documentazione non spesso corrisponde a software funzionante). Osservazione: la documentazione non è formata solo da commenti, deve essere completa anche di spiegazioni alle scelte progettuali;
+    \item Collaborazione con i clienti rispetto a negoziazione tramite contratti (l'interazione con gli stakeholder va incentivata e non ingessata);
+    \item Risposte al cambiamento e alle modifiche rispetto a seguire un piano (capacità di adattamento). Osservazione: senza avere un piano di rischi e avanzamenti non si prosegue. Ben venga l'adattamento, ma dipende dai costi.
+\end{itemize}
+L'idea alla base dei metodi agili è la \textit{user story}, ossia la funzionalità richiesta dal cliente: è una definizione di ciò che deve fornire come funzionalità il sistema ed un riassunto delle conversazioni con gli stakeholder per capire il problema.\newline
+Tipicamente, nei metodi agili si fanno piccoli incrementi con un valore aggiunto che possono essere sviluppati separatamente in maniera continua e successivamente integrati al loro completamento.
+L'obiettivo è:
+\begin{itemize}
+    \item Avere sempre qualcosa da mostrare al cliente;
+    \item Avere avanzamenti che sono progressi reali;
+    \item Rendere soddisfatti gli sviluppatori;
+    \item Dimostrare che il prodotto software è ben integrato e verificato.
+\end{itemize}
+Alcuni esempi di questi metodi sono SCRUM (spiegato di seguito) e Kanban.
+\subsubsection{SCRUM}
+SCRUM è un metodo agile. Si può descrivere brevemente nel seguente modo:
+\begin{itemize}
+    \item Le user story (dei metodi agili) raccontano le richieste del cliente;
+    \item Il responsabile del progetto (lo SCRUM Master) decide l'ordine (un elenco non statico) in cui fare le cose per realizzare le richieste del cliente. Questo elenco è chiamato \textit{product backlog};
+    \item La divisione del lavoro in \textit{sprint} (periodi di breve durata, 2-4 settimane) in cui ci sono sottoinsiemi di attività da fare scelti tra quelli disponibili nel \textit{product backlog}, chiamati \textit{sprint backlog}. Al suo interno, uno \textit{sprint} è così composto:
+    \begin{itemize}
+        \item \textit{Sprint Planning}: vengono selezionate le attività da svolgere dal \textit{product backlog} per inserirle nello \textit{sprint backlog};
+        \item \textit{Daily SCRUM}: incontro giornaliero di 15 minuti, in piedi, in cui ci si parla dei problemi riscontrati, del lavoro svolto e del lavoro che si farà. Non si risolvono problemi;
+        \item \textit{Sprint Review} e \textit{Sprint Retrospective}: rispettivamente incontri di breve durata (un paio d'ore ciascuno) in cui si discute rispettivamente del \g{prodotto software} realizzato e del controllo di qualità.
+    \end{itemize}
+\end{itemize}
+\subsubsection{SEMAT}
+Questo modello si differenzia dagli altri precedentemente presentati perché è diviso in temi, in cui c'è un livello base iniziale e uno finale che è l'obiettivo da raggiungere, passando per più step intermedi.
+\begin{itemize}
+    \item Stakeholder, ovvero le persone con cui ho a che fare per realizzare il sistema software:
+    \begin{itemize}
+        \item Riconosciuti (so chi sono gli stakeholder);
+        \item Rappresentati (li rappresento);
+        \item Partecipanti (sono partecipanti attivi del progetto);
+        \item D'accordo (sono nella stessa linea di pensiero con i miei stakeholder);
+        \item Soddisfazione nello sviluppo;
+        \item Soddisfazione nell'uso;
+    \end{itemize}
+    \item Opportunità, ovvero le circostanze che rendono sensato il progetto:
+    \begin{itemize}
+        \item Identificate;
+        \item \dots
+        \item Accumulo di beneficio (svolgere il progetto ha portato un plusvalore);
+    \end{itemize}
+    \item Requisiti, ovvero le caratteristiche da soddisfare per considerare corretto il lavoro svolto:
+    \begin{itemize}
+        \item Concepiti;
+        \item \dots
+        \item Soddisfatti;
+    \end{itemize}
+    \item Sistema software:
+    \begin{itemize}
+        \item Selezionata l'architettura;
+        \item Dimostrabile (ho una buona architettura e corretta per gli scopi);
+        \item Usabile;
+        \item Pronto (dopo l'implementazione);
+        \item Operativo (svolge le attività/azioni richieste dal cliente);
+        \item Ritirato (a meno che non debba continuare ad esistere);
+    \end{itemize}
+    \item Gruppo:
+    \begin{itemize}
+        \item \textit{Seeded} (faccio ciò che serve per selezionare le persone);
+        \item Formato (il team è formato);
+        \item Collaborazione (il team collabora);
+        \item Performante (il team è efficace e efficiente);
+        \item Aggiornato (il team può aggiornarsi, il lavoro è finito).
+    \end{itemize}
+    \item Lavoro:
+    \begin{itemize}
+        \item Inizializzato (lavoro definito);
+        \item Preparato (tutto è pronto per essere svolto);
+        \item Iniziato (lavoro cominciato);
+        \item Sotto controllo;
+        \item Concluso (lavoro finito);
+        \item Terminato (il lavoro è finito e si è sicuri che tutto è stato correttamente svolto);
+    \end{itemize}
+    \item Way of working:
+    \begin{itemize}
+        \item Principi fissati;
+        \item Elementi fondanti fissati;
+        \item Principi in uso;
+        \item Principi in ordine (le regole vengono rispettate);
+        \item Lavoro bene (lavorare bene e essere soddisfatti deve essere misurabile);
+        \item Ritirato (il \g{way of working} definito non ha più utilità a lavoro finito).
+    \end{itemize}
+\end{itemize}
+L'obiettivo finale è essere \g{sistematici}, \g{disciplinati} e \g{quantificabili}.
 \end{document}
