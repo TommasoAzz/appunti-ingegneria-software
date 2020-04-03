@@ -2,5 +2,62 @@
 \begin{document}
 
 \section{Amministrazione di progetto}
-
+L'amministrazione di un \g{progetto} è l'insieme di tutte le \g{attività} che vengono fatte per organizzare e gestire l'ambiente di lavoro e di produzione.
+L'amministrazione è un'attività compiuta principalmente dall'amministratore di concerto con i responsabili aziendali e/o di progetto.
+\subsection{Attività dell'amministrazione}
+L'amministrazione di un \g{progetto} consiste nelle seguenti attività:
+\begin{itemize}
+    \item Redazione delle norme, ovvero di tutte le regole e procedure per poter lavorare in modo efficace ed efficiente. Viene deciso il \g{way of working};
+    \item Organizzazione e gestione delle risorse informatiche, ovvero tutto ciò che riguarda gli ambienti di lavoro, l'infrastruttura, gli strumenti e la documentazione.
+\end{itemize}
+\subsection{Documentazione di progetto}
+In un \g{progetto} software è utile tenere traccia di tutto ciò che viene fatto e che è utile per misurare l'andamento dello stesso, per fornire conoscenza e mostrare dati oggettivi. I dati raccolti, le norme, il \g{way of working}, fa tutto parte della documentazione di un progetto.\newline
+La documentazione di un progetto include informazioni sui \g{processi} di \g{progetto} e sui \g{prodotti} da realizzare. Per i primi sono inclusi contratti oltre che pianificazioni e consuntivi; per i secondi sono incluse le specifiche del cliente, i diagrammi di progettazione, i commenti al codice, i manuali, i piani di qualifica.
+Essa, per essere realmente utile, deve essere \textit{sempre disponibile}. Non solo, deve essere:
+\begin{itemize}
+    \item Sempre disponibile;
+    \item Chiaramente identificata (ogni documento deve avere il proprio nome specifico);
+    \item Corretta nel contenuto;
+    \item Verificata e approvata (senza l'approvazione può ancora essere considerato una bozza, ma una volta verificato e approvato, da un responsabile, esso certifica la sua correttezza);
+    \item Aggiornata, datata e versionata;
+    \item Con una lista di distribuzione, ovvero le persone interessate a ricevere e visionare il documento.
+\end{itemize}
+\subsection{Ambiente di lavoro}
+Luogo, reale o virtuale, e strumenti con cui un lavoro viene svolto. L'ambiente è formato dalle persone, dai ruoli, dalle procedure e dall'infrastruttura.
+È importante che l'infrastruttura sia adeguata al lavoro che deve essere svolto. L'ambiente di lavoro in generale deve essere:
+\begin{itemize}
+    \item Completo, con tutto il necessario per lavorare;
+    \item Ordinato, tutto ciò di cui c'è bisogno è facilmente identificabile e utilizzabile;
+    \item Aggiornato, ciò che è obsoleto non deve essere d'intralcio ma va tenuto ai fini del versionamento e del tracciamento dello storico del lavoro.
+\end{itemize}
+Gli strumenti utili alla gestione del progetto sono molteplici e hanno più scopi:
+\begin{itemize}
+    \item Pianificazione e controllo dei costi (per esempio, strumenti che generano diagrammi di Gantt, come Microsoft Project);
+    \item Collaborazione, divisione del lavoro, coordinamento attività (per esempio, Issue Tracking System (ITS), come Atlassian Jira);
+    \item Gestione documentale;
+    \item Versionamento;
+    \item Configurazione.
+\end{itemize}
+Gli strumenti utili alla gestione del \g{processo} di sviluppo sono invece:
+\begin{itemize}
+    \item Raccolta, classificazione e tracciamento dei requisiti;
+    \item Progettazione di diagrammi (per esempio, diagrammi UML di classi, casi d'uso, architettura);
+    \item Codifica, automazione del processo di build, testing, integrazione continua, versionamento, analisi statica del codice.
+\end{itemize}
+\subsection{Configurazione}
+Un \g{prodotto software} è l'insieme ordinata di parti unite da regole quali specifiche, programmi, verifiche, manuali. Il software tipicamente ha una propria configurazione che è separata dallo sviluppo del programma e va gestita separatamente.
+Fanno parte della configurazione le seguenti attività:
+\begin{itemize}
+    \item Identificazione di configurazione, che corrisponde ad identificare tutti i \textit{Configuration Item (CI)} che compongono il prodotto, formati da un ID, un nome, una data di creazione, un autore, un registro delle modifiche e uno stato corrente;
+    \item Controllo di baseline, corrispondente a gestire le \textit{baseline}, ossia un insieme di \textit{CI} consolidato in un dato istante. A una baseline corrisponde tipicamente un punto fermo su di una linea temporale, chiamato \textit{milestone}. Un \g{progetto} consiste in una successione di milestone, pianificate a priori, a cui sono collegate una o più baseline. La loro gestione garantisce il controllo dell'avanzamento del \g{progetto} stesso;
+    \item Controllo di \g{versione}, corrispondente al salvataggio dello stato di uno o più CI senza rischiare sovrascritture (\textit{check-out}), in maniera collaborativa e senza conflitti (\textit{check-in$\rightarrow$commit}), salvando il proprio contributo su di un repository, che può essere sia locale che distribuito e quindi remoto;
+    \item Gestione delle modifiche, corrispondente al coordinamento delle richieste di modifiche da parte di utenti, sviluppatori o legate alla competizione che portano a dover analizzare delle proposte di modifiche, che viene trattata come se fosse un'attività da svolgere.
+\end{itemize}
+Una modifica, ma anche una funzionalità da aggiungere:
+\begin{itemize}
+    \item Deve essere richiesta (\textit{Change Request}) da qualcuno, che ne specifica il motivo e l'urgenza;
+    \item Va analizzata, inclusa la fattibilità,
+    \item Va accettata o scartata;
+    \item Se accettata, va gestita secondo il \g{way of working} di progetto o aziendale, tracciandone lo stato di avanzamento (con l'ausilio ad esempio di ITS) fino alla sua chiusura.
+\end{itemize}
 \end{document}
