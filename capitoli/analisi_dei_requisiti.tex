@@ -2,5 +2,81 @@
 \begin{document}
 
 \section{Analisi dei requisiti}
-
+Per trattare l'analisi dei requisiti è necessario introdurre il concetto di \g{requisito}. Per l'IEEE, un \g{requisito} può essere visto in due modi:
+\begin{itemize}
+    \item Capacità (nel senso di "saper fare") di cui un utente necessita per poter soddisfare una certa domanda (per risolvere un problema o raggiungere un obiettivo);
+    \item Capacità (nel senso di "saper soddisfare") che un sistema deve avere per rispettare degli obblighi.
+\end{itemize}
+\subsection{Verifica e validazione}
+\begin{itemize}
+    \item \g{Verifica}: è un'\g{attività} con attenzione rivolta ai \g{processi}. \textit{"Did I build the system right?"};
+    \item \g{Validazione}: è un'\g{attività} con attenzione rivolta ai \g{prodotti}. \textit{"Did I build the right system?"}.
+\end{itemize}
+\subsection{Svolgimento dell'analisi}
+L'analisi dei requisiti è una macro-attività. Affinché l'analisi dei requisiti di un problema venga fatta correttamente è necessario seguire una lista di \g{attività} da svolgere:
+\begin{itemize}
+    \item Studio dei bisogni del committente e delle fonti che compongono il dominio del problema;
+    \item Definizione iniziale dei requisiti (definendo dei casi d'uso che evidenziano i bisogni dell'utente del sistema);
+    \item Suddivisione dei requisiti in base alle parti del sistema che si devono realizzare (se il sistema necessità un'analisi di questo tipo, è necessariamente un minimo complesso e composto da più parti);
+    \item Negoziazione con il committente (per capire se ci sono requisiti che vanno soddisfatti);
+    \item Redazione di un Piano di Qualifica per le strategie da implementare per le \g{attività} di verifica e validazione;
+\end{itemize}
+L'analisi dei requisiti è un'\g{attività} del \g{processo} primario di sviluppo e come tale ha bisogno del supporto di alcuni altri \g{processi}: i \g{processi} di supporto appunto. Quelli adatti allo scopo sono:
+\begin{itemize}
+    \item Tracciamento dei requisiti (per gestire l'avanzamento e la conformità del prodotto in sviluppo con i requisiti iniziali);
+    \item Gestione della configurazione (la prima \g{baseline} riguarda i requisiti);
+    \item Gestione dei cambiamenti (c'è la necessità di tracciare il lavoro svolto e di definire regole, procedure) mediante sistemi di versionamento.
+\end{itemize}
+\subsubsection{Studio dei bisogni del committente e delle fonti che compongono il dominio del problema}
+Il problema da risolvere va compreso. In particolare devono essere identificati i seguenti:
+\begin{itemize}
+    \item Prodotto da commissionare: compito del committente;
+    \item Prodotto da realizzare: compito del fornitore (ovvero chi realizza il progetto);
+    \item Accordi contrattuali: compito del cliente e del fornitore.
+    \item Implicazioni di costo e di qualità: quanto costa svolgere un determinato requisito (in termini di risorse finite)?
+\end{itemize}
+\subsection{Prodotti documentali}
+Per completare l'analisi dei requisiti è necessario assolvere a due obblighi documentali:
+\begin{itemize}
+    \item Studio di Fattibilità: documento interno del fornitore in cui si studia la fattibilità del prodotto da realizzare;
+    \item Analisi dei Requisiti: documento esterno, contrattuale, del fornitore in cui viene analizzato il problema.
+\end{itemize}
+La suddivisione, citata precedentemente, dei requisiti in base alle parti del sistema che si devono realizzare è la base per la progettazione.
+\subsection{Approcci per affrontare l'analisi dei requisiti}
+Ci sono diversi approcci:
+\begin{itemize}
+    \item Top-down: analisi del sistema ad alto livello ed esploro funzionalmente man mano;
+    \item Bottom-up: concezione simile all'OOP, fortemente orientata al riuso, ipotizzando le parti che possono comporlo;
+    \item Agile: consolidamento incrementale, sia nella scoperta dei requisiti che nella realizzazione del prodotto.
+\end{itemize}
+\subsection{Studio di fattibilità}
+Lo studio di fattibilità, cui culmina in un documento che porta tale nome, è un'attività che si occupa di valutare se ha senso portare avanti o meno il prodotto commissionato.\newline
+Lo scopo è valutare rischi, costi e benefici in base alle risorse disponibili. Purtroppo si basa su dati che non si hanno (specialmente se il prodotto da realizzare è particolarmente innovativo) a disposizione e quindi è necessario valutare diversi scenari possibili a partire da ciò di cui si ha conoscenza.
+Una fattore da non sottovalutare sono le scadenze temporali entro cui portare a termine il prodotto richiesto.
+\subsection{Tecniche di analisi}
+Ovvero come carpire i requisiti: non basta infatti avere un'unica discussione con il committente del prodotto o leggendo un capitolato d'appalto per poter capire a pieno quali sono i requisiti da soddisfare. Può essere utile, ad esempio, un'attività di brainstorming iniziale con cui avanzare idee; oppure mettersi nei panni del committente e capire i suoi reali bisogni, magari anche discutendone altre volte per dettagliare la sua spiegazione iniziale. Infine, può essere utile realizzare qualche prototipo del prodotto (interno oppure esterno se lo si vuole mostrare al committente) per chiarirsi le idee.
+\subsection{Classificazione dei requisiti}
+Non tutti i requisiti sono uguali, quindi è bene riordinarli per poterli facilmente comprendere, tracciare nell'avanzamento e manutenere.
+I requisiti possono classificarsi in:
+\begin{itemize}
+    \item Requisiti funzionali: relativi al \g{prodotto} da realizzare, riguardanti il funzionamento dello stesso;
+    \item Requisiti prestazionali: anch'essi sul \g{prodotto}, riguardanti però le prestazioni minime che il software deve avere per considerarsi completo;
+    \item Requisiti qualitativi: nuovamente sul \g{prodotto}, che vincolano il rispetto di certi parametri di alcune metriche di qualità definite nel piano di qualifica;
+    \item Requisiti di vincolo: sui \g{processi}, richiedono la misurazione di alcuni parametri sui processi per poter misurarne la qualità.
+\end{itemize}
+I requisiti hanno bisogno di essere verificati, quindi ad ogni tipo di requisito deve corrispondere un modo per verificarne la correttezza o la soddisfazione:
+\begin{itemize}
+    \item Requisiti funzionali: test;
+    \item Requisiti prestazionali: misurazioni;
+    \item Requisiti qualitativi: tecniche ad hoc;
+    \item Requisiti di vincolo: Revisione con il committente.
+\end{itemize}
+Infine, i requisiti hanno diversi livelli di utilità:
+\begin{itemize}
+    \item Obbligatori: imprescindibili per considerare completo il \g{prodotto};
+    \item Desiderabili: non strettamente necessari ma che certamente forniscono valore aggiunto;
+    \item Opzionali: certamente utili, ma il loro non completamento non porta svantaggio al prodotto.
+\end{itemize}
+\subsection{Tracciamento dei requisiti}
+Attività necessaria per poter capire la provenienza dei requisiti, ovvero le fonti da cui sono stati ricavati.
 \end{document}
