@@ -2,4 +2,65 @@
 \begin{document}
 
 \section{Verifica e validazione: Analisi statica}
+Un \g{prodotto software} di buona qualità deve avere tutte le funzionalità indicate nell'analisi dei requisiti e richieste dal capitolato, ma anche tutte le caratteristiche non funzionali richieste.\newline
+Deve essere verificato che il software possegga buone proprietà di qualità:
+\begin{itemize}
+    \item Di costruzione, ovvero che abbia una buona architettura, unità ben integrate e una buona codifica;
+    \item D'uso, ovvero una buona esperienza d'uso (UX) per l'utente, precisione e affidabilità;
+    \item Di funzionamento, ovvero buone prestazioni, robustezza e sicurezza.
+\end{itemize}
+Affinché queste verifiche siano possibili è necessario scrivere codice che non le ostacoli: il codice deve essere verificabile. Bisogna trovare il giusto compromesso fra il potere espressivo di un linguaggio (ovvero le funzionalità che esso offre) e il costo di effettuare la verifica. Più una caratteristica di linguaggio è di alto livello, più è possibile che sia difficile da testare.\newline
+Due sono i possibili modi di programmare:
+\begin{itemize}
+    \item Affidarsi spesso ad API di terze parti, di tipo "black-box" (non so come operino, devo \textit{fidarmi});
+    \item Controllare a pieno l'esecuzione, evitando API il più possibile.
+\end{itemize}
+La codifica deve essere coerente con le esigenze di verifica, che deve essere \textit{proattiva} e non \textit{reattiva}:
+\begin{itemize}
+    \item Proattiva ("\textit{pursuing correctness by construction}"): gli errori vengono cercati appositamente per correggerli e evitare di farci imbattere gli utenti;
+    \item Reattiva ("\textit{seeking correctness by correction}"): gli errori vengono corretti solo quando si verificano.
+\end{itemize}
+\subsection{Scrivere programmi verificabili}
+È auspicabile avere delle norme di codifica ben definite a livello di \g{progetto} per assicurare un comportamento predicibile (ovvero ho un'aspettativa corretta di ciò che il codice realizza), per usare criteri di programmazione ben fondati e, ovviamente, per la massima efficienza.
+\subsubsection*{Comportamento predicibile}
+Perché si vuole essere sicuri di avere un codice sorgente con comportamento predicibile, ovvero non ambiguo? Alcuni esempi:
+\begin{itemize}
+    \item Perché si vogliono evitare i cosiddetti \textit{side effect}, tipicamente evitare modifiche allo stato di un oggetto senza che venga dichiarato esplicitamente oppure funzioni che in due invocazioni distinte fanno due cose diverse;
+    \item Perché si vuole avere il controllo dell'ordine di esecuzione delle operazioni;
+    \item Perché si vuole scegliere come passare i parametri ad una funzione (per riferimento o per valore).
+\end{itemize}
+\subsubsection*{Criteri di programmazione}
+Alcuni esempi di criteri di programmazione ben fondati, che sono \g{best practice}:
+\begin{itemize}
+    \item Riflettere l'architettura (design) nel codice, per una maggior facilità di comprensione delle componenti software e facilitare il riuso;
+    \item Separare l'interfaccia dall'implementazione: l'interfaccia è necessaria per integrare le unità, l'implementazione è necessaria per garantire il funzionamento, ma è "meno importante";
+    \item Massimizzare l'information hiding (proprietà private, metodi pubblici);
+    \item Tipi specializzati per rappresentare i dati.
+\end{itemize}
+\subsubsection*{Ragioni pragmatiche}
+Un codice ben strutturato garantisce una maggior facilità di verifica e di garanzia di correttezza.
+\subsection{Tracciamento}
+Per poter dimostrare la correttezza e la completezza di un \g{prodotto software} è necessario tracciare i requisiti che si soddisfano. Prendendo in considerazione il \g{modello a V}, diviso in ramo sinistro (discendente) e destro (ascendente), il tracciamento va fatto:
+\begin{itemize}
+    \item Sul ramo discendente, mentre si progetta e si sviluppa;
+    \item Sul ramo ascendente, mentre si testa e quindi verifica.
+\end{itemize}
+Il tracciamento deve poter essere automatizzato. L'automazione può essere facilitata dalla progettazione:
+\begin{itemize}
+    \item Requisiti che si riferiscono a unità: testata e verificata l'unità, lo è di conseguenza anche il requisito;
+\end{itemize}
+\subsection{Analisi statica del codice}
+Ci sono varie tipologie di verifiche che possono essere fatte per l'analisi statica:
+\begin{itemize}
+    \item Flusso di controllo: ci si accerta che il codice esegua nella sequenza specificata, che non sia presente dead code, che non ci siano sequenze di codice senza terminazione;
+    \item Flusso dei dati: ci si accerta che le variabili da accedere siano sempre valorizzate quando devono essere lette o scritte, ci si accerta l'assenza di variabili globali;
+    \item Flusso dell’informazione: ci si accerta che le dipendenze siano tutte specificate (evitare dipendenze nascoste!);
+    \item Esecuzione simbolica;
+    \item Verifica formale del codice: dimostrazioni formali, esplorando tutte le possibili esecuzioni;
+    \item Verifica di limite: si prova a vedere se la correttezza del programma è assicurata anche in presenza di dati ai limiti di rappresentazione (overflow, underflow per i numeri);
+    \item Uso dello stack: verificare che non ci sia la possibilità che lo stack richiesto sia maggiore di quello a disposizione e che stack (memoria usata per i dati locali e indirizzi di ritorno generati a compile time) e heap (memoria usata globalmente a run time) non collidano;
+    \item Comportamento temporale: controllare la durata di certe operazioni;
+    \item Interferenza: controllare che non ci siano errori dovuti a memoria condivisa;
+    \item Codice oggetto.
+\end{itemize}
 \end{document}
