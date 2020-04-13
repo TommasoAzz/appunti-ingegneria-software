@@ -49,28 +49,4 @@ Inoltre, anche Dijkstra con le sue tesi afferma che "un test di un programma pu�
 L'oracolo può essere ottenuto dalle specifiche funzionali oppure "calcolando" i possibili risultati oppure usando componenti indipendenti terze che forniscono risultati assunti corretti.
 \subsubsection{Classi di equivalenza}
 Non essendo possibile effettuare un test per ogni possibile input, è necessario dividere i possibili input in classi di equivalenza, ovvero classi di valori che condividono le stesse caratteristiche, e che quindi è sufficiente testare un campione per classe per assicurarsi a sufficienza di coprire tutte le possibili situazioni.
-\subsection{Tipologie di test}
-In §11.4 vengono già illustrate le tipologie di test, ma poco in dettaglio. Vediamo di dettagliarle più a fondo.
-\subsubsection{Test di unità}
-Un'\g{unità} è composta da uno o più moduli, ovvero componenti elementari dell'architettura di dettaglio. Durante la progettazione dell'architettura di dettaglio vengono pianificati i test di unità da realizzare.\newline
-I test di unità sono di due tipi:
-\begin{itemize}
-    \item Test funzionale o \textit{black-box}: verifica del funzionamento dell'unità conoscendone la specifica ma non l'implementazione, quindi non può verificare l'esattezza della logica interna (va integrato con test strutturali);
-    \item Test di unità o \textit{white-box}: verifica della logica interna dell'unità cercando la massima copertura (il cosiddetto \textit{code coverage}), verificando tutti i possibili casi disponibili.
-\end{itemize}
-La \textit{code coverage} può essere divisa in:
-\begin{itemize}
-    \item \textit{statement coverage}: percentuale di copertura degli statement, in generale, di un'unità durante l'esecuzione mediante test;
-    \item \textit{branch coverage}: percentuale di copertura di ogni ramo del flusso di controllo;
-    \item \textit{Decision/condition coverage}: percentuale di copertura dei possibili risultati di un'espressione condizionale.
-\end{itemize}
-\subsubsection{Test di integrazione}
-I test di integrazione verificano il funzionamento delle componenti descritte a livello di progettazione architetturale, verificando che le interfacce di comunicazione siano adeguate. Affinché si possano realizzare questo tipo di test, le unità da integrare vanno integrate con numero di dipendenze crescente, così da poterle provare man mano (in modo incrementale).
-L'integrazione può essere fatta:
-\begin{itemize}
-    \item Top-down: Sviluppo prima le parti più in alto nell'albero delle dipendenze, aggiungendo man mano. Questo metodo comporta l'uso di molti \textit{stub}, ma integra a partire dalle funzionalità di alto livello;
-    \item Bottom-up: Sviluppo prima le parti con minore grado di dipendenza, poi risalgo l'albero delle dipendenze. Questo metodo comporta l'uso di pochi \textit{stub}, ma le funzionalità sono disponibili più avanti nel tempo.
-\end{itemize}
-\subsection{Test di sistema}
-I test di sistema verificano il comportamento del sistema rispetto ai requisiti del capitolato. Sono test di tipo \textit{black box} e sono precursori del collaudo.
 \end{document}
